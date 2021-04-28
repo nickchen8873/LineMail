@@ -12,15 +12,20 @@
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
     <script>
         //init LIFF
-        (async () => {
-            await liff.init({ liffId: '#{liffidFull}' })
-            if (new URL(window.location).searchParams.get('liff.state')) return
-            const liffLoginRedirect = sessionStorage.getItem('liffLoginRedirect')
-            if (_.isString(liffLoginRedirect)) {
-                sessionStorage.removeItem('liffLoginRedirect')
-                location.href = liffLoginRedirect
-            }
-        })()
+        function initializeLiff(myLiffId) {
+            liff
+                .init({
+                    liffId: myLiffId
+                })
+                .then(() => {
+                    // start to use LIFF's api
+                    initializeApp();
+                })
+                .catch((err) => {
+                    document.getElementById("liffAppContent").classList.add('hidden');
+                    document.getElementById("liffInitErrorMessage").classList.remove('hidden');
+                });
+        }
 
         //ready
         $(function () {
