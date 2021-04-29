@@ -48,12 +48,13 @@
                 var receiver=document.getElementById('receiver').text
                 var subject=document.getElementById('subject').text
                 var msg=document.getElementById('msg').text
+                var test='你要寄給'+receiver+', 的主題是'+subject+', 訊息內容為'+msg
                 if (!liff.isInClient()) {
                     sendAlertIfNotInClient();
                 } else {
                     liff.sendMessages([{
                         'type': 'text',
-                        'text': '你要寄給'+receiver+', 的主題是'+subject+', 訊息內容為'+msg
+                        'text': test
                     }]).then(function () {
                         window.alert('Message sent');
                     }).catch(function (error) {
