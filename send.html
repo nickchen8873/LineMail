@@ -45,12 +45,15 @@
 
             //ButtonSendMsg
             document.getElementById('ButtonSendMail').addEventListener('click', function () {
+                var receiver=document.getElementById('receiver').text
+                var subject=document.getElementById('subject').text
+                var msg=document.getElementById('msg').text
                 if (!liff.isInClient()) {
                     sendAlertIfNotInClient();
                 } else {
                     liff.sendMessages([{
                         'type': 'text',
-                        'text': "Hello, World!"
+                        'text': '你要寄給'+receiver+', 的主題是'+subject+', 訊息內容為'+msg
                     }]).then(function () {
                         window.alert('Message sent');
                     }).catch(function (error) {
