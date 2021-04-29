@@ -63,13 +63,7 @@
                     });
             });
         });
-        function autogrow(textarea) {
-            var adjustedHeight = textarea.clientHeight;
-            adjustedHeight = Math.max(textarea.scrollHeight, adjustedHeight);
-            if (adjustedHeight > textarea.clientHeight) {
-                textarea.style.height = adjustedHeight + 'px';
-            }
-        }
+        
     </script>
 </head>
 
@@ -86,8 +80,7 @@
                 <div class="form-group">
                     <label for="name">要傳送的訊息:</label>
                     <br>
-                    <textarea class="form-control" id="msg" name="message" row="30" cols="50" resize="none"
-                        overflow="auto"></textarea>
+                    <textarea class="form-control" id="msg" name="message" row="30" cols="50"></textarea>
                 </div>
             </form>
             <br>
