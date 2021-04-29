@@ -63,6 +63,13 @@
                     });
             });
         });
+        function autogrow(textarea) {
+            var adjustedHeight = textarea.clientHeight;
+            adjustedHeight = Math.max(textarea.scrollHeight, adjustedHeight);
+            if (adjustedHeight > textarea.clientHeight) {
+                textarea.style.height = adjustedHeight + 'px';
+            }
+        }
     </script>
 </head>
 
@@ -70,16 +77,17 @@
     <div class="row">
         <div class="col-md-6" style="margin:5px">
             <label>收件者:</label>
-            <input class="form-control" type="text" id="receiver"/>
+            <input class="form-control" type="text" id="receiver" />
             <br>
             <label>主旨:</label>
             <input class="form-control" type="text" id="subject" />
             <br>
-            <form role = "form">
+            <form role="form">
                 <div class="form-group">
                     <label for="name">要傳送的訊息:</label>
                     <br>
-                    <textarea class="form-control" id="msg" name="message" row="30" cols="50"></textarea> 
+                    <textarea class="form-control" id="msg" name="message" row="30" cols="50" resize="none"
+                        overflow="auto"></textarea>
                 </div>
             </form>
             <br>
