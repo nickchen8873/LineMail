@@ -70,11 +70,18 @@
     <div class="row">
         <div class="col-md-6" style="margin:5px">
             <label>收件者:</label>
-            <input class="form-control" type="text" id="receiver" /> <br/>
+            <input class="form-control" type="text" id="receiver" />
+            <br/>
             <label>主旨:</label>
-            <input class="form-control" type="text" id="subject" /> <br/>
-            <label>要傳送的訊息:</label> <br/>
-            <textarea class="form-control" type="text" id="msg" name="message" row="30" cols="40"></textarea> <br/>
+            <input class="form-control" type="text" id="subject" />
+            <br/>
+            <form role = "form">
+                <div class="form-group">
+                    <label for="name">要傳送的訊息:</label>
+                    <textarea class="form-control" id="msg" name="message" row="30"></textarea> 
+                </div>
+            </form>
+            <br/>
             <button class="btn btn-primary" id="ButtonSendMail">傳送</button>
         </div>
     </div>
